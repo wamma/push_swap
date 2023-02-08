@@ -6,7 +6,7 @@
 #    By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 15:21:03 by hyungjup          #+#    #+#              #
-#    Updated: 2023/02/06 16:57:33 by hyungjup         ###   ########.fr        #
+#    Updated: 2023/02/08 17:27:34 by hyungjup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,42 +14,43 @@ NAME = push_swap
 
 CC = cc
 CFLAG = -Wall -Wextra -Werror
+
+SRCS_DIR =	./srcs
+OBJS_DIR = ./objs
+INC_DIR = ./includes
+
+LIBFT = libft.a
+LIBFT_DIR = ./libft
+
+SRCS =  ./srcs/main.c \
+
+
+OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
+
+vpath %.c $(SRCS_DIR)
+
 RM = rm -f
-LIB_DIR = ./libft
-LIBFLAG = -lft -L$(LIB_DIR)
-
-SRCS = main.c\
-	   
-
-OBJS = $(SRCS:.c=.o)
-
-HEADER = push_swap.h
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@make -C $(LIB_DIR)
-	@$(CC) $(CFLAGS) $(LIBFLAG) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)$(NAME) created!"
+	@$(MAKE) -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -lft
+	@echo "\033[1;32mcreated"
 
-%.o : %.c $(HEADER)
-	@${CC} ${CFLAG} -c $< -o $@
+$(OBJS_DIR) :
+	@mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
+	@$(CC) $(CFLAGS) -o $@ -I$(INC_DIR) -I$(LIBFT_DIR) -c $^
 
 clean :
-	@$(RM) $(RMFLAG) $(OBJS)
-	@make -C $(LIB_DIR) clean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 	@rm -f make_mandatory
-	@echo "$(YELLOW)object files deleted!"
+	@$(RM) -r $(OBJS_DIR)
 
 fclean : clean
 	@$(RM) $(NAME)
-	@make -C $(LIB_DIR) fclean
-	@echo "$(RED)all deleted"
+	@echo "\033[0;33mall deleted"
 
 re : fclean all
-
-.PHONY : all clean fclean re
-
-RED = \033[1;31m
-GREEN = \033[1;32m
-YELLOW = \033[0;33m

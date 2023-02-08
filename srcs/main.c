@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 17:26:42 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/06 18:15:57 by hyungjup         ###   ########.fr       */
+/*   Created: 2023/02/06 16:53:57 by hyungjup          #+#    #+#             */
+/*   Updated: 2023/02/08 18:09:35 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-void	parsing(char *str, t_ps *a) //split으로 공백 나누고 atoi 해주기
+void	parsing(char *str)
 {
-	int		i;
 	char	**tmp;
+	int		i;
 
 	i = 0;
 	tmp = ft_split(str, ' ');
-	if (!tmp)
-		ft_error("Invalid argument");
-	while (tmp[i])
+}
+
+int	main(int ac, char **av)
+{
+	int		i;
+	t_stack	*a;
+	t_stack	*b;
+
+	i = 1;
+	if (ac > 1)
 	{
-		if (!ft_atoi(tmp[i]))
-			ft_error("Empty args");
-		i++;
+		while (i < ac)
+		{
+			parsing(av[i]);
+			printf("%s   ", av[i]);
+			i++;
+		}
 	}
-	free(tmp);
 }
