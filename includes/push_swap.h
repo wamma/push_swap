@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:58:35 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/08 17:36:51 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:24:46 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ typedef struct s_value
 
 /* ===============./srcs=============== */
 
+void	check_dup(t_node *a);
 char	ft_error(char *err);
 t_stack	*init_stack(void);
 t_node	*init_node(void);
 void	connect_list(t_node **tmp, t_node **node, t_stack **stack);
 int		set_node(char *av, t_node **node, t_stack **stack);
 t_node	*make_stack(int ac, char **av, t_stack **stack);
-void	parsing(char *str);
 int		ps_atoi(char *str);
+void	push_swap(t_stack *a, t_stack *b);
 
 #endif

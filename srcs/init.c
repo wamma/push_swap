@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/08 18:08:01 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:01:21 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_node	*init_node(void)
 
 void	connect_list(t_node **tmp, t_node **node, t_stack **stack)
 {
-	if (!*node)
+	if (!(*node))
 	{
 		*node = *tmp;
 		(*stack)->top = *node;
@@ -67,13 +67,13 @@ int	set_node(char *av, t_node **node, t_stack **stack)
 	{
 		tmp = init_node();
 		if (!tmp)
-			ft_error();
-		tmp->data = ft_atoi(args[i]);
+			ft_error("Error");
+		tmp->data = ps_atoi(args[i]);
 		connect_list(&tmp, node, stack);
 		(*stack)->size++;
 		free(args[i]);
 	}
-	// free(args);
+	free(args);
 	return (1);
 }
 
@@ -89,7 +89,7 @@ t_node	*make_stack(int ac, char **av, t_stack **stack)
 	{
 		result = set_node(av[i], &node, stack);
 		if (!result)
-			ft_error();
+			ft_error("Error");
 	}
 	if (!node->next)
 		(*stack)->bottom = node;

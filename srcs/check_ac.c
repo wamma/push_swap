@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_atoi.c                                          :+:      :+:    :+:   */
+/*   check_ac.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 15:53:51 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/13 11:43:40 by hyungjup         ###   ########.fr       */
+/*   Created: 2023/02/13 15:04:40 by hyungjup          #+#    #+#             */
+/*   Updated: 2023/02/13 15:08:02 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ps_atoi(char *str)
+void	check_dup(t_node *a)
 {
-	int			i;
-	int			sign;
-	long long	value;
+	int		cur_value;
+	t_node	*tmp;
 
-	i = 0;
-	sign = 1;
-	value = 0;
-	if (str[i] == '-' || str[i] == '+')
+	while (a->next)
 	{
-		if (str[i++] == '-')
-			sign = -1;
+		tmp = a->next;
+		cur_value = a->data;
+		while (tmp)
+		{
+			if (tmp->data == cur_value)
+				ft_error("Error");
+			if (tmp->next)
+				tmp = tmp->next;
+			else
+				break ;
+		}
+		a = a->next;
 	}
-	while (str[i])
-		value = value * 10 + (str[i++] - '0');
-	value = value * sign;
-	if (value > MAX_INT || value < MIN_INT)
-		ft_error("Error");
-	return (value);
+	while (a->prev)
+		a = a->prev;
 }
