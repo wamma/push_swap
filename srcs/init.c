@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/13 17:01:21 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:10:50 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@ t_node	*make_stack(int ac, char **av, t_stack **stack)
 	t_node	*node;
 
 	i = 1;
-	node = NULL;
+	node = init_node();
 	while (i < ac)
 	{
 		result = set_node(av[i], &node, stack);
 		if (!result)
 			ft_error("Error");
 	}
-	if (!node->next)
+	if (node->next == NULL)
 		(*stack)->bottom = node;
 	while (node->prev)
 		node = node->prev;

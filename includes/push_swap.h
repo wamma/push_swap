@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:58:35 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/13 17:24:46 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:12:00 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void	connect_list(t_node **tmp, t_node **node, t_stack **stack);
 int		set_node(char *av, t_node **node, t_stack **stack);
 t_node	*make_stack(int ac, char **av, t_stack **stack);
 int		ps_atoi(char *str);
+// void	push_top(t_stack *stack, t_node *node);
+// void	push_bottom(t_stack *stack, t_node *node);
+void	push_pop(t_stack *send, t_stack *receive);
 void	push_swap(t_stack *a, t_stack *b);
+void	swap_stack(t_stack *stack);
 
 #endif
