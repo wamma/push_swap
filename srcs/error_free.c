@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 16:53:57 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/15 17:06:13 by hyungjup         ###   ########.fr       */
+/*   Created: 2023/02/07 16:17:22 by hyungjup          #+#    #+#             */
+/*   Updated: 2023/02/20 18:13:16 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_error(void)
 {
-	t_stack	*a;
-	t_stack	*b;
+	write(2, "Error", 6);
+	exit(1);
+}
 
-	if (ac > 1)
+void	free_stack(t_stack *a, t_stack *b)
+{
+	t_node	*tmp;
+	t_node	*next;
+
+	tmp = a->bottom;
+	while (tmp)
 	{
-		a = init_stack();
-		b = init_stack();
-		a->bottom = make_stack(ac, av,&a);
-		check_dup(a->top);
-		//계산
+		next = tmp->prev;
+		free(tmp);
+		tmp = next;
 	}
+	free(a);
+	free(b);
 }

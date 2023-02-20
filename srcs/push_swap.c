@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:15:21 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/15 15:03:37 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:32:36 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,26 @@
 
 void	push_swap(t_stack *a, t_stack *b)
 {
-	int	cnt;
-
-	cnt = 0;
-	if (a->size == 5)
+	if (a->size < 6)
 	{
-		//5개 이하 정렬
+		sort_six_under(a, b);
+		return ;
 	}
 	else
-		a_to_b(a->size, a, b, &cnt);
+		sort(a, b);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	if (argc < 2)
+		return (-1);
+	a = init_stack();
+	b = init_stack();
+	a->top = make_stack(argc, argv, &a);
+	check_dup(a->top);
+	push_swap(a, b);
+	free_stack(a, b);
 }

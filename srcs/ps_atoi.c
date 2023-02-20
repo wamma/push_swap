@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:53:51 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/15 16:49:14 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:08:03 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	ps_atoi(char *str)
 	while (str[i] != '\0')
 	{
 		if (!ft_isdigit(str[i]))
-			ft_error("Error");
+			ft_error();
 		result = result * 10 + (str[i++] - '0');
 	}
 	result = result * sign;
 	if (result > MAX_INT || result < MIN_INT)
-		ft_error("Error");
+		ft_error();
 	return (result);
 }

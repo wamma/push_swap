@@ -1,37 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ac.c                                         :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 15:04:40 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/20 17:07:43 by hyungjup         ###   ########.fr       */
+/*   Created: 2023/02/20 17:29:43 by hyungjup          #+#    #+#             */
+/*   Updated: 2023/02/20 17:30:10 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_dup(t_node *a)
-{
-	int		cur_value;
-	t_node	*tmp;
-
-	while (a->next)
-	{
-		tmp = a->next;
-		cur_value = a->data;
-		while (tmp)
-		{
-			if (tmp->data == cur_value)
-				ft_error();
-			if (tmp->next)
-				tmp = tmp->next;
-			else
-				break ;
-		}
-		a = a->next;
-	}
-	while (a->prev)
-		a = a->prev;
-}

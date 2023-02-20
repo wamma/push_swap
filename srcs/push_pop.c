@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:10:36 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/17 16:31:08 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:08:12 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push_top(t_stack *stack, t_node *node)
 {
 	if (!node)
-		ft_error("Error");
+		ft_error();
 	if (stack->size == 0)
 	{
 		stack->top = node;
@@ -39,7 +39,7 @@ void	push_top(t_stack *stack, t_node *node)
 void	push_bottom(t_stack *stack, t_node *node)
 {
 	if (!node)
-		ft_error("Error");
+		ft_error();
 	if (stack->size == 0)
 	{
 		stack->top = node;
@@ -71,7 +71,11 @@ t_node	*pop_top(t_stack *stack)
 		stack->bottom = NULL;
 	}
 	else if (stack->size == 2)
+	{
 		stack->top = stack->bottom;
+		stack->top->prev = NULL;
+		stack->top->bottom = NULL;
+	}
 	else
 	{
 		stack->top = stack->top->next;
@@ -94,6 +98,16 @@ t_node	*pop_bottom(t_stack *stack)
 	}
 	else if (stack->size == 2)
 	{
-		
+		stack->bottom = stack->top;
+		stack->bottom->prev = NULL;
+		stack->bottom->next = NULL;
 	}
+	else
+	{
+		stack->bottom = stack->bottom->prev;
+		stack->bottom->next = NULL;
+	}
+	tmp->next = NULL;
+	stack->size--;
+	return (tmp);
 }

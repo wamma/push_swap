@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/15 17:10:50 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:07:53 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	connect_list(t_node **tmp, t_node **node, t_stack **stack)
 	}
 }
 
-int	set_node(char *av, t_node **node, t_stack **stack)
+int	set_node(char *argv, t_node **node, t_stack **stack)
 {
 	int		i;
 	char	**args;
 	t_node	*tmp;
 
-	args = ft_split(av, ' ');
+	args = ft_split(argv, ' ');
 	if (!args || !*args)
 		return (0);
 	i = 0;
@@ -67,7 +67,7 @@ int	set_node(char *av, t_node **node, t_stack **stack)
 	{
 		tmp = init_node();
 		if (!tmp)
-			ft_error("Error");
+			ft_error();
 		tmp->data = ps_atoi(args[i]);
 		connect_list(&tmp, node, stack);
 		(*stack)->size++;
@@ -77,7 +77,7 @@ int	set_node(char *av, t_node **node, t_stack **stack)
 	return (1);
 }
 
-t_node	*make_stack(int ac, char **av, t_stack **stack)
+t_node	*make_stack(int argc, char **argv, t_stack **stack)
 {
 	int		i;
 	int		result;
@@ -85,11 +85,11 @@ t_node	*make_stack(int ac, char **av, t_stack **stack)
 
 	i = 1;
 	node = init_node();
-	while (i < ac)
+	while (i < argc)
 	{
-		result = set_node(av[i], &node, stack);
+		result = set_node(argv[i], &node, stack);
 		if (!result)
-			ft_error("Error");
+			ft_error();
 	}
 	if (node->next == NULL)
 		(*stack)->bottom = node;
