@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_pop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
+/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:10:36 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/20 17:08:12 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:53:12 by heongjunpar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push_top(t_stack *stack, t_node *node)
 
 void	push_bottom(t_stack *stack, t_node *node)
 {
-	if (!node)
+	if (!stack || !node)
 		ft_error();
 	if (stack->size == 0)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
+/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:58:35 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/20 18:02:36 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:23:34 by heongjunpar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ typedef struct s_stack
 	struct t_node	*bottom;
 }	t_stack;
 
-// typedef struct s_value
-// {
-// 	int		size;
-// 	int		*arr;
+typedef struct s_value
+{
+	int		size;
+	int		*arr;
 
-// }	t_value;
+}	t_value;
 
 /* ===============./srcs=============== */
 

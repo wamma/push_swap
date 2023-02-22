@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ps_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
+/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:53:51 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/20 17:08:03 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:13:34 by heongjunpar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	ft_is_space(char c)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
+/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/20 17:07:53 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:23:03 by heongjunpar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_stack	*init_stack(void)
 {
@@ -77,7 +77,7 @@ int	set_node(char *argv, t_node **node, t_stack **stack)
 	return (1);
 }
 
-t_node	*make_stack(int argc, char **argv, t_stack **stack)
+t_node	*make_stack(int argc, char **argv, t_stack **stack, int *arr)
 {
 	int		i;
 	int		result;

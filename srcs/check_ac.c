@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_ac.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
+/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:04:40 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/20 17:07:43 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:12:35 by heongjunpar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	check_dup(t_node *a)
 {
