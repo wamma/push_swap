@@ -3,97 +3,112 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/22 16:23:03 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/23 16:46:08 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*init_stack(void)
+t_value	*init_value(void)
 {
-	t_stack	*stack;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->size = 0;
-	stack->top = NULL;
-	stack->bottom = NULL;
-	return (stack);
+	val->a = (t_stack *)malloc(sizeof(t_stack));
+	val->b = (t_stack *)malloc(sizeof(t_stack));
+	if (!a || !b)
+		ft_error();
+	val->size = 0;
+	val->arr = NULL;
+	val->a->top = NULL;
+	val->a->bottom = NULL;
+	val->b->top = NULL;
+	val->b->bottom = NULL;
+	val->a->size = 0;
+	val->b->size = 0;
 }
 
-t_node	*init_node(void)
+static t_node	*init_node(int value)
 {
 	t_node	*node;
 
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
-	node->data = 0;
+	node->data = value;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
 }
 
-void	connect_list(t_node **tmp, t_node **node, t_stack **stack)
-{
-	if (!(*node))
-	{
-		*node = *tmp;
-		(*stack)->top = *node;
-	}
-	else
-	{
-		(*node)->next = *tmp;
-		(*tmp)->prev = *node;
-		*node = (*node)->next;
-	}
-}
-
-int	set_node(char *argv, t_node **node, t_stack **stack)
+static void	arr_make(char *argv, t_value *val, int *arr, int sum)
 {
 	int		i;
-	char	**args;
-	t_node	*tmp;
-
-	args = ft_split(argv, ' ');
-	if (!args || !*args)
-		return (0);
-	i = 0;
-	while (args[i])
-	{
-		tmp = init_node();
-		if (!tmp)
-			ft_error();
-		tmp->data = ps_atoi(args[i]);
-		connect_list(&tmp, node, stack);
-		(*stack)->size++;
-		free(args[i]);
-	}
-	free(args);
-	return (1);
-}
-
-t_node	*make_stack(int argc, char **argv, t_stack **stack, int *arr)
-{
-	int		i;
-	int		result;
-	t_node	*node;
+	int		j;
+	int		index;
+	int		num;
+	char	**tmp;
 
 	i = 1;
-	node = init_node();
+	index = 0;
 	while (i < argc)
 	{
-		result = set_node(argv[i], &node, stack);
-		if (!result)
+		j = 0;
+		num = 0;
+		tmp = ft_split(argv[i]);
+		if (!tmp[0])
 			ft_error();
+		while (j < num)
+		{
+			arr[index] = ft_atoi(tmp[j]);
+			j++;
+			val->size++;
+		}
+		i++;
+		free_split(tmp, num);
 	}
-	if (node->next == NULL)
-		(*stack)->bottom = node;
-	while (node->prev)
-		node = node->prev;
-	return (node);
+}
+
+static int	cal_arr_size(int argc, char **argv)
+{
+	int		i;
+	int		num;
+	int		sum;
+	char	**tmp;
+
+	i = 1;
+	sum = 0;
+	while (i < argc)
+	{
+		num = 0;
+		tmp = ft_split(argv[i]);
+		if (!tmp[0])
+			ft_error();
+		free_split(tmp, &num);
+		sum += num;
+		i++;
+	}
+	return (sum);
+}
+
+int	*make_stack(int argc, char **argv, t_value *val)
+{
+	int		i;
+	int		sum;
+	int		*arr;
+	t_node	*node;
+
+	i = 0;
+	sum = cal_arr_size(argc, argv);
+	arr = (int *)malloc(sizeof(int) * sum);
+	if (!arr)
+		ft_error();
+	arr_make(argv, val, arr, sum);
+	while (i < sum)
+	{
+		node = init_node(i);
+		push_bottom(val->a, node);
+		i++;
+	}
+	return (arr);
 }

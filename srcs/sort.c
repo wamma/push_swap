@@ -3,11 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:29:43 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/21 17:13:48 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/23 13:50:18 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	sort(t_stack *a, t_stack *b)
+{
+	int	max_idx;
+
+	max_idx = get_max_idx()
+}

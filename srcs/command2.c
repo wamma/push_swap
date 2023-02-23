@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:08:04 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/21 17:13:06 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/23 11:49:53 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ra(t_stack *a)
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, int flag)
 {
 	t_node	*tmp;
 

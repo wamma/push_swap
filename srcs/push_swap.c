@@ -3,38 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:15:21 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/22 16:22:53 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/23 17:13:07 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_swap(t_stack *a, t_stack *b)
+static int	check_arr(t_value *val, int *arr)
 {
-	if (a->size < 6)
+	int	i;
+	int	j;
+	int	flag;
+
+	i = 0;
+	flag = 0;
+	while (i < val->a->size - 1)
 	{
-		sort_six_under(a, b);
+		j = i + 1;
+		while (j < val->a->size)
+		{
+			if (arr[i] == arr[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	push_swap(t_value *val)
+{
+	if (val->a->size < 6)
+	{
+		sort_six_under(val->a);
 		return ;
 	}
 	else
-		sort(a, b);
+		sort(val->a, val->b);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_value	val;
+	int		flag;
 	int		*arr;
 
 	if (argc < 2)
 		return (-1);
-	a = init_stack();
-	b = init_stack();
-	a->top = make_stack(argc, argv, &a, arr);
-	check_dup(a->top);
-	push_swap(a, b);
+	val = init_value();
+	arr = make_stack(argc, argv, &val);
+	flag = check_arr(&val, arr);
+	if (!flag)
+		return (0);
+	val.arr = arr;
+	push_swap(&val);
 	free_stack(a, b);
 }

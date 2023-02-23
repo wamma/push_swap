@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_six_under.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:33:12 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/22 19:15:58 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/23 13:26:32 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,6 @@ static void	sort_three(t_stack *a)
 		sa(a);
 		rra(a);
 	}
-}
-
-void	sort_five(t_stack *a)
-{
-	
-}
-
-static void	quick_sort(t_stack *a, t_stack *b)
-{
-	int		pivot_small;
-	int		pivot_big;
-	int		cnt;
-	t_node	tmp;
-
-	cnt = 0;
-	pivot_small = 
 }
 
 void	sort_six_under(t_stack *a, t_stack *b)

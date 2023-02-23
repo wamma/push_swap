@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:58:35 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/22 15:23:34 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/23 14:34:14 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ typedef struct s_stack
 
 typedef struct s_value
 {
+	t_stack	*a;
+	t_stack	*b;
 	int		size;
 	int		*arr;
-
 }	t_value;
 
 /* ===============./srcs=============== */
@@ -50,23 +51,24 @@ void	ss(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	ra(t_stack *a);
-void	rb(t_stack *b);
+void	rb(t_stack *b, int flag);
 void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 void	ft_error(void);
-t_stack	*init_stack(void);
-t_node	*init_node(void);
-void	connect_list(t_node **tmp, t_node **node, t_stack **stack);
-int		set_node(char *argv, t_node **node, t_stack **stack);
-t_node	*make_stack(int argc, char **argv, t_stack **stack);
+void	free_stack(t_stack *a, t_stack *b);
+void	free_split(char **arr, int index);
+t_value	*init_value(void);
+int		*make_stack(int argc, char **argv, t_value *val);
 int		ps_atoi(char *str);
 void	push_top(t_stack *stack, t_node *node);
 void	push_bottom(t_stack *stack, t_node *node);
 t_node	*pop_top(t_stack *stack);
 t_node	*pop_bottom(t_stack *stack);
-void	push_swap(t_stack *a, t_stack *b);
+void	push_swap(t_value *val);
+void	sort(t_stack *a, t_stack *b);
+void	sort_six_under(t_stack *a, t_stack *b);
 void	swap_stack(t_stack *stack);
 
 #endif
