@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ac.c                                         :+:      :+:    :+:   */
+/*   greedy_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 15:04:40 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/21 17:12:35 by heongjunpar      ###   ########.fr       */
+/*   Created: 2023/02/24 16:59:44 by hyungjup          #+#    #+#             */
+/*   Updated: 2023/02/24 19:04:36 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	check_dup(t_node *a)
+void	search_best_way(t_value *val, int *a, int *b)
 {
-	int		cur_value;
+	int		new_a;
+	int		new_b;
+	int		i;
+	int		num;
 	t_node	*tmp;
 
-	while (a->next)
+	i = 0;
+	tmp = val->b->top;
+	while (i < val->b->size)
 	{
-		tmp = a->next;
-		cur_value = a->data;
-		while (tmp)
-		{
-			if (tmp->data == cur_value)
-				ft_error();
-			if (tmp->next)
-				tmp = tmp->next;
-			else
-				break ;
-		}
-		a = a->next;
+		i++;
 	}
-	while (a->prev)
-		a = a->prev;
 }

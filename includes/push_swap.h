@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:58:35 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/23 14:34:14 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:00:08 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,19 @@ typedef struct s_value
 	int		*arr;
 }	t_value;
 
-/* ===============./srcs=============== */
-
-void	check_dup(t_node *a);
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b, int flag);
-void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
+void	sa(t_value *val);
+void	sb(t_value *val);
+void	ss(t_value *val);
+void	pa(t_value *val);
+void	pb(t_value *val);
+void	ra(t_value *val);
+void	rb(t_value *val, int flag);
+void	rr(t_value *val);
+void	rra(t_value *val);
+void	rrb(t_value *val);
+void	rrr(t_value *val);
 void	ft_error(void);
 void	free_stack(t_stack *a, t_stack *b);
-void	free_split(char **arr, int index);
 t_value	*init_value(void);
 int		*make_stack(int argc, char **argv, t_value *val);
 int		ps_atoi(char *str);

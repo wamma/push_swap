@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 13:36:20 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/23 16:39:53 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:08:48 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,9 @@ void	free_split(char **arr, int index)
 	free(arr);
 }
 
-char	**ft_split(char const *str)
+char	**ft_split(char const *str, int *i)
 {
 	char	**result;
-	int		i;
 
 	result = (char **)malloc(sizeof(char *) * (word_count(str) + 1));
 	if (!result || !str)
@@ -90,16 +89,16 @@ char	**ft_split(char const *str)
 			str++;
 		if (*str == '\0')
 			break ;
-		result[i] = str_word_print(str);
-		if (result[i] == NULL)
+		result[*i] = str_word_print(str);
+		if (result[*i] == NULL)
 		{
-			free_split(result, i);
+			free_split(result, *i);
 			return (NULL);
 		}
-		i++;
+		(*i)++;
 		while (*str && !ft_is_space(*str))
 			str++;
 	}
-	result[i] = NULL;
+	result[*i] = NULL;
 	return (result);
 }

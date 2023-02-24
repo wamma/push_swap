@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   command3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:25:50 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/21 17:13:14 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/24 15:28:41 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_value *val)
 {
-	rra(a);
-	rrb(b);
+	rra(val->a);
+	rrb(val->b);
 	write(1, "rrr\n", 4);
 }

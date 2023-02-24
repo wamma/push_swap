@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:17:22 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/23 15:13:05 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:28:48 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,4 @@ void	free_stack(t_stack *a, t_stack *b)
 	}
 	free(a);
 	free(b);
-}
-
-void	free_split(char **arr, int index)
-{
-	int	i;
-
-	i = 0;
-	while (i < index)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }

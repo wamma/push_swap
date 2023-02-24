@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/23 16:46:08 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:25:11 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	arr_make(char *argv, t_value *val, int *arr, int sum)
 			ft_error();
 		while (j < num)
 		{
-			arr[index] = ft_atoi(tmp[j]);
+			arr[index++] = ft_atoi(tmp[j]);
 			j++;
 			val->size++;
 		}

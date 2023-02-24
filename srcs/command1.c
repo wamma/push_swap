@@ -3,60 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   command1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 14:50:58 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/21 17:12:44 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/02/24 16:10:08 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_value *val, int flag)
 {
 	int	tmp;
 
-	if (a->size < 2)
+	if (val->a->size < 2)
 		return ;
-	tmp = a->top->data;
-	a->top->data = a->top->next->data;
-	a->top->next->data = tmp;
-	write(1, "sa\n", 3);
+	tmp = val->a->top->data;
+	val->a->top->data = val->a->top->next->data;
+	val->a->top->next->data = tmp;
+	if (flag == 1)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b)
+void	sb(t_value *val, int flag)
 {
 	int	tmp;
 
-	if (b->size < 2)
+	if (val->b->size < 2)
 		return ;
-	tmp = b->top->data;
-	b->top->data = b->top->next->data;
-	b->top->next->data = tmp;
-	write(1, "sb\n", 3);
+	tmp = val->b->top->data;
+	val->b->top->data = val->b->top->next->data;
+	val->b->top->next->data = tmp;
+	if (flag == 1)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_value *val)
 {
-	sa(a);
-	sb(b);
+	sa(val->a, 0);
+	sb(val->b, 0);
 	write(1, "ss\n", 3);
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_value *val)
 {
-	if (b->size == 0)
+	if (val->b->size == 0)
 		return ;
-	push_top(a, b->top->data);
-	pop_top(b);
+	push_top(val->a, val->b->top->data);
+	pop_top(val->b);
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_value *val)
 {
-	if (a->size == 0)
+	if (val->a->size == 0)
 		return ;
-	push_top(b, a->top->data);
-	pop_top(a);
+	push_top(val->b, val->a->top->data);
+	pop_top(val->a);
 	write(1, "pb\n", 3);
 }
