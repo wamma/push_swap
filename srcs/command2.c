@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:08:04 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 15:56:33 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:51:08 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ra(t_value *val, int flag)
 		return ;
 	tmp = pop_top(val->a);
 	push_bottom(val->a, tmp);
-	write(1, "ra\n", 3);
+	if (flag == 1)
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_value *val, int flag)
@@ -31,7 +32,8 @@ void	rb(t_value *val, int flag)
 		return ;
 	tmp = pop_top(val->b);
 	push_bottom(val->b, tmp);
-	write(1, "rb\n", 3);
+	if (flag == 1)
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_value *val)

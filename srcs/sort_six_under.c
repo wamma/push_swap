@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:33:12 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 15:32:05 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:46:17 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ static void	sort_three(t_value *val)
 	two = val->a->top->next->data;
 	three = val->a->bottom->data;
 	if (one < two && one > three && two > three)
-		sa(val->a);
+		sa(val, 1);
 	else if (one > two && one > three && three > two)
-		ra(val->a);
+		ra(val, 1);
 	else if (one < two && one > three && two > three)
-		rra(val->a);
+		rra(val, 1);
 	else if (one < two && one < three && two > three)
 	{
-		sa(val->a);
-		ra(val->a);
+		sa(val, 1);
+		ra(val, 1);
 	}
 	else if (one > two && one > three && two > three)
 	{
-		sa(val->a);
-		rra(val->a);
+		sa(val, 1);
+		rra(val, 1);
 	}
 }
 

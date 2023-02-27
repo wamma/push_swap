@@ -6,13 +6,13 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:29:43 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/27 13:00:17 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:23:48 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	partitioning(t_value *val)
+static void	partition(t_value *val)
 {
 	int		pivot_small;
 	int		pivot_big;
@@ -21,7 +21,7 @@ static void	partitioning(t_value *val)
 	pivot_small = val->arr[val->size / 3];
 	pivot_big = val->arr[val->size * 2 / 3];
 	i = 0;
-	while (val->a->size > 3 && i < val->a->size)
+	while (val->a->size > 3 && i < val->size)
 	{
 		if (val->a->top->data <= pivot_small)
 		{
@@ -37,8 +37,7 @@ static void	partitioning(t_value *val)
 	}
 	while (val->a->size > 3)
 		pb(val);
-	if (val->a->size == 3)
-		sort_three(val);
+	sort_three(val);
 }
 
 static void	greedy_sort(t_value *val)
@@ -54,6 +53,6 @@ static void	greedy_sort(t_value *val)
 
 void	sort(t_value *val)
 {
-	partitioning(val);
+	partition(val);
 	greedy_sort(val);
 }
