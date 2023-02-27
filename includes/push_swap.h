@@ -42,20 +42,23 @@ typedef struct s_value
 	int		*arr;
 }	t_value;
 
-void	sa(t_value *val);
-void	sb(t_value *val);
+/* ===============./srcs=============== */
+
+void	sa(t_value *val, int flag);
+void	sb(t_value *val, int flag);
 void	ss(t_value *val);
 void	pa(t_value *val);
 void	pb(t_value *val);
-void	ra(t_value *val);
+void	ra(t_value *val, int flag);
 void	rb(t_value *val, int flag);
 void	rr(t_value *val);
 void	rra(t_value *val);
 void	rrb(t_value *val);
 void	rrr(t_value *val);
 void	ft_error(void);
-void	free_stack(t_stack *a, t_stack *b);
-t_value	*init_value(void);
+void	free_stack(t_value *val);
+void	search_best_way(t_value *val, int *a, int *b);
+void	init_value(t_value *val);
 int		*make_stack(int argc, char **argv, t_value *val);
 int		ps_atoi(char *str);
 void	push_top(t_stack *stack, t_node *node);
@@ -63,8 +66,8 @@ void	push_bottom(t_stack *stack, t_node *node);
 t_node	*pop_top(t_stack *stack);
 t_node	*pop_bottom(t_stack *stack);
 void	push_swap(t_value *val);
-void	sort(t_stack *a, t_stack *b);
-void	sort_six_under(t_stack *a, t_stack *b);
+void	sort(t_value *val);
+void	sort_six_under(t_value *val);
 void	swap_stack(t_stack *stack);
 
 #endif

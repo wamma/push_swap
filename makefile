@@ -6,7 +6,7 @@
 #    By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 15:21:03 by hyungjup          #+#    #+#              #
-#    Updated: 2023/02/13 17:00:28 by hyungjup         ###   ########.fr        #
+#    Updated: 2023/02/27 12:30:45 by hyungjup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,18 @@ INC_DIR = ./includes
 LIBFT = libft.a
 LIBFT_DIR = ./libft
 
-SRCS =  ./srcs/main.c \
+SRCS =  ./srcs/push_swap.c \
+		./srcs/push_pop.c \
 		./srcs/init.c \
-		./srcs/check_ac.c \
 		./srcs/error.c \
 		./srcs/ps_atoi.c \
+		./srcs/command1.c \
+		./srcs/command2.c \
+		./srcs/command3.c \
+		./srcs/error_free.c \
+		./srcs/sort.c \
+		./srcs/sort_six_under.c \
+		./srcs/swap.c \
 
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))

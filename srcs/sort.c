@@ -6,13 +6,13 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:29:43 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 19:04:16 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:00:17 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	quick_sort(t_value *val)
+static void	partitioning(t_value *val)
 {
 	int		pivot_small;
 	int		pivot_big;
@@ -48,14 +48,12 @@ static void	greedy_sort(t_value *val)
 
 	while (val->b->size)
 	{
-		a = 0;
-		b = 0;
 		search_best_way(val, &a, &b);
 	}
 }
 
 void	sort(t_value *val)
 {
-	quick_sort(val);
+	partitioning(val);
 	greedy_sort(val);
 }

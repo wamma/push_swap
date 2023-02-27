@@ -6,13 +6,13 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 13:15:32 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 14:25:11 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:37:28 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_value	*init_value(void)
+void	init_value(t_value *val)
 {
 	val->a = (t_stack *)malloc(sizeof(t_stack));
 	val->b = (t_stack *)malloc(sizeof(t_stack));

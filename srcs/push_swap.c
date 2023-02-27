@@ -6,35 +6,11 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:15:21 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 15:32:15 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:39:33 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static void	check_dup(t_value *val, int *arr)
-{
-	int		cur_value;
-	t_node	*tmp;
-
-	while (val->a->next)
-	{
-		tmp = a->next;
-		cur_value = a->data;
-		while (tmp)
-		{
-			if (tmp->data == cur_value)
-				ft_error();
-			if (tmp->next)
-				tmp = tmp->next;
-			else
-				break ;
-		}
-		a = a->next;
-	}
-	while (a->prev)
-		a = a->prev;
-}
 
 static void	check_dup(t_value *val, int *arr)
 {
@@ -82,11 +58,11 @@ void	push_swap(t_value *val)
 {
 	if (val->a->size <= 3)
 	{
-		sort_six_under(val->a);
+		sort_six_under(val);
 		return ;
 	}
 	else
-		sort(val->a, val->b);
+		sort(val);
 }
 
 int	main(int argc, char **argv)
@@ -97,12 +73,12 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (-1);
-	val = init_value();
+	init_value(&val);
 	arr = make_stack(argc, argv, &val);
 	flag = arr_valid_check(&val, arr);
 	if (!flag)
 		return (0);
 	val.arr = arr;
 	push_swap(&val);
-	free_stack(a, b);
+	free_stack(&val);
 }
