@@ -6,7 +6,7 @@
 #    By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 15:21:03 by hyungjup          #+#    #+#              #
-#    Updated: 2023/02/27 12:30:45 by hyungjup         ###   ########.fr        #
+#    Updated: 2023/03/02 18:01:48 by hyungjup         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS =  ./srcs/push_swap.c \
 		./srcs/push_pop.c \
 		./srcs/init.c \
 		./srcs/error.c \
-		./srcs/ps_atoi.c \
 		./srcs/command1.c \
 		./srcs/command2.c \
 		./srcs/command3.c \

@@ -6,31 +6,45 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:24:53 by hyungjup          #+#    #+#             */
-/*   Updated: 2022/11/16 18:07:34 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:00:48 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	ft_is_space(char c)
 {
-	int	sign;
-	int	num;
+	if (c == '\t' || c == '\n' || c == '\f' || c == '\v' \
+		|| c == 'r' || c == ' ')
+		return (1);
+	else
+		return (0);
+}
 
+int	ps_atoi(char *str)
+{
+	size_t		i;
+	long		sign;
+	long long	result;
+
+	i = 0;
 	sign = 1;
-	num = 0;
-	while ((9 <= *str && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '-' || *str == '+')
+	result = 0;
+	while (str[i] != '\0' && ft_is_space(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		if (str[i++] == '-')
+			sign = -1;
 	}
-	while (ft_isdigit(*str))
+	while (str[i] != '\0')
 	{
-		num = num * 10 + (*str - '0');
-		str++;
+		if (!ft_isdigit(str[i]))
+			ft_error();
+		result = result * 10 + (str[i++] - '0');
 	}
-	return (sign * num);
+	result = result * sign;
+	if (result > MAX_INT || result < MIN_INT)
+		ft_error();
+	return (result);
 }

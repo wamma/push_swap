@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_pop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heongjunpark <heongjunpark@student.42.f    +#+  +:+       +#+        */
+/*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:10:36 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/22 19:53:12 by heongjunpar      ###   ########.fr       */
+/*   Updated: 2023/03/02 17:57:09 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_node	*pop_top(t_stack *stack)
 	else
 	{
 		stack->top = stack->top->next;
-		stack->top-> = stack->top->next;
+		stack->top->prev = NULL;
 	}
 	tmp->prev = NULL;
 	stack->size--;
