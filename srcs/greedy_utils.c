@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:59:44 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/03/02 17:45:09 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:05:37 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,26 @@ int	get_cnt(t_value *val, int num)
 	return (index);
 }
 
-/*num = b->top->data
-  max = a->top->data*/
+int	get_min_cnt(t_value val, int num)
+{
+	int		i;
+	t_node	*node;
+	int		diff;
+
+	i = 0;
+	node = val->a->top;
+	while (node)
+	{
+		if (num > node->data)
+			diff = num - node->data;
+		else
+			diff = node->data - num;
+		node = node->next;
+	}
+	tmp = node->data;
+	i = get_cnt(val, tmp);
+}
+
 static int	set_a_location(t_value *val, int b_top_data)
 {
 	int	cnt;
@@ -60,6 +78,8 @@ static int	set_a_location(t_value *val, int b_top_data)
 			cnt = get_cnt(val, max) + 1;
 		else
 			cnt = get_min_cnt(val, max);
+		if (cnt > val->a->size / 2)
+			cnt = (val->a->size - cnt) * (-1);
 	}
 	return (cnt);
 }
