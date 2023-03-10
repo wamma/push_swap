@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:29:43 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/27 17:23:48 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:02:47 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	greedy_sort(t_value *val)
 	while (val->b->size)
 	{
 		search_best_way(val, &a, &b);
+		rotate_both(val, &a, &b);
 	}
 }
 
