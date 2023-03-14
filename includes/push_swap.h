@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:58:35 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 17:00:08 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:51:49 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,18 @@ void	pb(t_value *val);
 void	ra(t_value *val, int flag);
 void	rb(t_value *val, int flag);
 void	rr(t_value *val);
-void	rra(t_value *val);
-void	rrb(t_value *val);
+void	rra(t_value *val, int flag);
+void	rrb(t_value *val, int flag);
 void	rrr(t_value *val);
 void	ft_error(void);
 void	free_stack(t_value *val);
 void	rotate_both(t_value *val, int *a, int *b);
 void	rotate_a(t_value *val, int *a);
 void	rotate_b(t_value *val, int *b);
+void	rotate_last(t_value *val);
 int		get_max_data(t_value *val);
 int		get_cnt(t_value *val, int num);
-int		get_min_cnt(t_value val, int num);
+int		get_min_cnt(t_value *val, int num);
 void	search_best_way(t_value *val, int *a, int *b);
 void	init_value(t_value *val);
 int		*make_stack(int argc, char **argv, t_value *val);
@@ -71,6 +72,8 @@ void	push_bottom(t_stack *stack, t_node *node);
 t_node	*pop_top(t_stack *stack);
 t_node	*pop_bottom(t_stack *stack);
 void	push_swap(t_value *val);
+int		ft_abs(int num);
+int		find_bigger(int a, int b, int a_pos, int b_pos);
 void	sort(t_value *val);
 void	sort_six_under(t_value *val);
 void	swap_stack(t_stack *stack);

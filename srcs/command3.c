@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:25:50 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/02/24 15:28:41 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:56:20 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rrr(t_value *val)
 {
-	rra(val->a);
-	rrb(val->b);
+	rra(val, 0);
+	rrb(val, 0);
 	write(1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:00:26 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/03/10 19:10:21 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:38:20 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,16 @@ void	rotate_b(t_value *val, int *b)
 	{
 		rrb(val, 1);
 		(*b)++;
+	}
+}
+
+void	rotate_last(t_value *val)
+{
+	int	i;
+
+	i = get_cnt(val, get_max_data(val));
+	if (i < val->a->size - 1)
+	{
+		rra(val, 1);
 	}
 }

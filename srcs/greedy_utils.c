@@ -6,7 +6,7 @@
 /*   By: hyungjup <hyungjup@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:59:44 by hyungjup          #+#    #+#             */
-/*   Updated: 2023/03/07 20:05:37 by hyungjup         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:53:55 by hyungjup         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,58 +14,61 @@
 
 int	get_max_data(t_value *val)
 {
-	int		a_top_data;
+	int		max_data;
 	t_node	*node;
 
 	node = val->a->top;
-	a_top_data = node->data;
+	max_data = node->data;
 	while (node)
 	{
-		if (node->data > a_top_data)
-			a_top_data = node->data;
+		if (node->data > max_data)
+			maxdata = node->data;
 		node = node->next;
 	}
-	return (a_top_data);
+	return (max_data);
 }
 
 int	get_cnt(t_value *val, int num)
 {
-	int		index;
-	t_node	*a_top;
-
-	index = 0;
-	a_top = val->a->top;
-	while (a_top)
-	{
-		if (a_top->data == num)
-			break ;
-		index++;
-		a_top = a_top->next;
-	}
-	return (index);
-}
-
-int	get_min_cnt(t_value val, int num)
-{
 	int		i;
 	t_node	*node;
-	int		diff;
 
 	i = 0;
 	node = val->a->top;
+	while (node)
+	{
+		if (node->data == num)
+			break ;
+		i++;
+		node = node->next;
+	}
+	return (i);
+}
+
+int	get_min_cnt(t_value *val, int num)
+{
+	int		tmp;
+	t_node	*node;
+	int		diff;
+	int		diff_minimum;
+
+	node = val->a->top;
+	diff_max = MAX_INT;
 	while (node)
 	{
 		if (num > node->data)
 			diff = num - node->data;
 		else
 			diff = node->data - num;
+		if (diff_minimum >= diff)
+		{
+			
+		}
 		node = node->next;
 	}
-	tmp = node->data;
-	i = get_cnt(val, tmp);
 }
 
-static int	set_a_location(t_value *val, int b_top_data)
+static int	set_a_location(t_value *val, int num)
 {
 	int	cnt;
 	int	max;
@@ -74,7 +77,7 @@ static int	set_a_location(t_value *val, int b_top_data)
 	if (val->a->top)
 	{
 		max = get_max_data(val);
-		if (b_top_data > max)
+		if (num > max)
 			cnt = get_cnt(val, max) + 1;
 		else
 			cnt = get_min_cnt(val, max);
@@ -92,17 +95,17 @@ static int	set_a_location(t_value *val, int b_top_data)
 void	search_best_way(t_value *val, int *a, int *b)
 {
 	int		index;
-	int		b_top_data;
+	int		num;
 	int		a_pos;
 	int		b_pos;
-	t_node	b_top;
+	t_node	tmp;
 
 	index = 0;
-	b_top = val->b->top;
+	tmp = val->b->top;
 	while (index < val->size)
 	{
-		b_top_data = b_top->data;
-		a_pos = set_a_location(val, b_top_data);
+		num = tmp->data;
+		a_pos = set_a_location(val, num);
 		if (index > (val->size + 1) / 2)
 			b_pos = (val->b->size - index) * (-1);
 		else
@@ -112,7 +115,7 @@ void	search_best_way(t_value *val, int *a, int *b)
 			*a = a_pos;
 			*b = b_pos;
 		}
-		b_top = b_top->next;
+		tmp = tmp->next;
 		index++;
 	}
 }
